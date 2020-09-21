@@ -5,17 +5,27 @@ import org.testng.annotations.*;
 import static org.testng.Assert.*;
 import org.testng.annotations.DataProvider;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RockPaperScissorsTest {
 
     RockPaperScissors rps;
     Player p1, p2 ;
-    int mouvementsP1[] ;
-    int mouvementsP2[];
+    List<Play>mouvementsP1;
+    List<Play>mouvementsP2;
     @BeforeMethod
     public void setUp() {
         rps = new RockPaperScissors();
-        mouvementsP1  = new int[]{0,1,2,0,1,2,0,1,2,0};
-        mouvementsP2  = new int[]{1,2,1,1,2,1,1,2,1,1};
+        mouvementsP1 = new ArrayList<Play>();
+        mouvementsP2 = new ArrayList<Play>();
+        mouvementsP1.add(Play.PAPER);
+        mouvementsP1.add(Play.ROCK);
+        mouvementsP1.add(Play.SCISSORS);
+        mouvementsP2.add(Play.ROCK);
+        mouvementsP2.add(Play.SCISSORS);
+        mouvementsP2.add(Play.PAPER);
+
         p1 = new Player("rokhaya", mouvementsP1);
         p2 = new Player("adja", mouvementsP2);
 
